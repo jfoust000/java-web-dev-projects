@@ -1,7 +1,5 @@
 package org.launchcode;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Area {
 
@@ -24,12 +22,6 @@ public class Area {
 
         System.out.println("Enter a radius:");
         radius = input.nextLine();
-
-//         if(!isNumeric(radius)) {
-//             System.out.println("Non numeric entry");
-//         } else {
-//             System.out.println("numeric entry");
-//         }
 
         while (!isNumeric(radius) || Double.parseDouble(radius) < 0) {
 
