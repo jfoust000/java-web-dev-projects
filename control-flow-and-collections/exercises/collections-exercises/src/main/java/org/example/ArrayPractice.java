@@ -1,7 +1,5 @@
 package org.example;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayPractice {
 
@@ -127,14 +125,48 @@ public class ArrayPractice {
         if (filteredArrayList.isEmpty()) {
 
             System.out.println("No words of that length found.");
-            input.close();
+
 
         } else {
 
             System.out.println("Words with " + wordLen + " letters within stringArrayList: " + filteredArrayList);
-            input.close();
+
+
         }
 
+        HashMap<Integer, String> students = new HashMap<>();
+        System.out.println("Enter Student Names (Press Enter to Finish");
+        String newStudent;
+
+        do {
+
+            System.out.println("Student: ");
+            newStudent = input.nextLine();
+
+            if (!newStudent.equals("")) {
+                System.out.println("Enter ID for " + newStudent + ": ");
+                String newID = input.nextLine();
+
+                while (!isInteger(newID)) {
+
+                    System.out.println("Enter ID for " + newStudent + ": ");
+                    newID = input.nextLine();
+
+                }
+
+                students.put(Integer.parseInt(newID), newStudent);
+                input.nextLine();
+            }
+
+        } while(!newStudent.isEmpty());
+
+        System.out.println("Students:");
+
+        for (Map.Entry<Integer, String> student : students.entrySet()) {
+
+            System.out.println(student.getKey() + " (" + student.getValue() + ")");
+
+        }
 
 
     }
