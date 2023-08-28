@@ -81,8 +81,9 @@ public class Course {
         }
 
         Course theCourse = (Course) toBeCompared;
-        return Objects.equals(theCourse.getTopic(), getTopic()) &&
-                Objects.equals(theCourse.getInstructor(), getInstructor());
+        return Objects.equals(theCourse.getTopic(), getTopic())
+                && Objects.equals(theCourse.instructor.getFirstName(), instructor.getFirstName())
+                && Objects.equals(theCourse.instructor.getLastName(), instructor.getLastName());
 
     }
 
