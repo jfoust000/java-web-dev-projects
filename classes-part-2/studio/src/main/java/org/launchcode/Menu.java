@@ -2,6 +2,7 @@ package org.launchcode;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Menu {
     private Date lastUpdated;
@@ -27,6 +28,97 @@ public class Menu {
     public ArrayList<MenuItem> getItems() {
         return items;
     }
+
+   public String toString() {
+
+        String menuToString = "\nCurrent Menu:\n";
+
+        for (MenuItem menuItem : items) {
+
+            menuToString += menuItem.toString();
+
+        }
+
+        return menuToString;
+
+   }
+
+    public void addMenuItem(MenuItem aMenuItem) {
+
+        boolean duplicateEntry = false;
+
+        for (MenuItem menuItem : items) {
+
+            if (aMenuItem.getName() == menuItem.getName()) {
+
+                duplicateEntry = true;
+
+            }
+
+        }
+
+        if (duplicateEntry) {
+
+            System.out.println("The MenuItem already exists. MenuItem Not Added.");
+
+        } else {
+
+            this.items.add(aMenuItem);
+            System.out.println("\nMenu Item\n" + aMenuItem + "\nAdded Successfully!\n");
+
+        }
+
+
+    }
+
+    public void removeMenuItem(MenuItem aMenuItem) {
+
+        boolean matchFound = false;
+
+        for (MenuItem menuItem : items) {
+
+            if (aMenuItem.getName() == menuItem.getName()) {
+
+                matchFound = true;
+                items.remove(menuItem);
+                System.out.println("\nRemoved MenuItem\n" + aMenuItem + "\nSuccessfully!\n");
+
+            }
+        }
+
+        if(!matchFound) {
+
+            System.out.println("MenuItem Not Found.");
+
+        }
+    }
+
+    public String printMenuItem(MenuItem aMenuItem) {
+
+        String mI = "";
+        boolean matchFound = false;
+
+        for (MenuItem menuItem : items) {
+
+            if (aMenuItem.getName() == menuItem.getName()) {
+
+                matchFound = true;
+                mI = menuItem.toString();
+
+            }
+
+        }
+
+        if (!matchFound) {
+
+            mI = "MenuItem Not Found";
+
+        }
+
+        return mI;
+
+    }
+
 }
 
 
