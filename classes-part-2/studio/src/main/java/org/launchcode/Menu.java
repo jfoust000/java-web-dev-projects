@@ -49,9 +49,10 @@ public class Menu {
 
         for (MenuItem menuItem : items) {
 
-            if (aMenuItem.getName() == menuItem.getName()) {
+            if (menuItem.equals(aMenuItem)) {
 
                 duplicateEntry = true;
+                break;
 
             }
 
@@ -59,11 +60,11 @@ public class Menu {
 
         if (duplicateEntry) {
 
-            System.out.println("The MenuItem already exists. MenuItem Not Added.");
+            System.out.println("\nThe MenuItem already exists. MenuItem Not Added.\n");
 
         } else {
 
-            this.items.add(aMenuItem);
+            items.add(aMenuItem);
             System.out.println("\nMenu Item\n" + aMenuItem + "\nAdded Successfully!\n");
 
         }
@@ -77,12 +78,12 @@ public class Menu {
 
         for (MenuItem menuItem : items) {
 
-            if (aMenuItem.getName() == menuItem.getName()) {
+            if (Objects.equals(aMenuItem.getName(), menuItem.getName())) {
 
                 matchFound = true;
                 items.remove(menuItem);
                 System.out.println("\nRemoved MenuItem\n" + aMenuItem + "\nSuccessfully!\n");
-
+                break;
             }
         }
 
@@ -100,7 +101,7 @@ public class Menu {
 
         for (MenuItem menuItem : items) {
 
-            if (aMenuItem.getName() == menuItem.getName()) {
+            if (Objects.equals(aMenuItem.getName(), menuItem.getName())) {
 
                 matchFound = true;
                 mI = menuItem.toString();

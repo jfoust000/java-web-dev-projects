@@ -48,6 +48,9 @@ public class Restaurant {
 
         breakfastMenu.addMenuItem(coffee);
 
+        System.out.println("Adding Coffee again as a duplicate:");
+        breakfastMenu.addMenuItem(coffee);
+
         System.out.println("\nBreakfast Menu To String: \n" + breakfastMenu + "\n");
 
         System.out.println("Dinner Menu To String:");
@@ -65,6 +68,7 @@ public class Restaurant {
         String category;
         String name;
         boolean isNewItem;
+        MenuItem newDinnerMenuItem;
 
         System.out.println("Add a new Dinner Menu Item Below.");
 
@@ -83,8 +87,30 @@ public class Restaurant {
         System.out.print("Is this a new Menu Item? (Enter true or false):");
         isNewItem = Boolean.parseBoolean(input.nextLine());
 
-        MenuItem newDinnerMenuItem = new MenuItem(price, description, category, name, isNewItem);
+        newDinnerMenuItem = new MenuItem(price, description, category, name, isNewItem);
         dinnerMenu.addMenuItem(newDinnerMenuItem);
+
+        System.out.println("Add a new Dinner Menu Item Below.");
+
+        System.out.print("Please enter price:");
+        price = Double.parseDouble(input.nextLine());
+
+        System.out.print("Please enter description:");
+        description = input.nextLine();
+
+        System.out.print("Please enter category:");
+        category = input.nextLine();
+
+        System.out.print("Please enter name:");
+        name = input.nextLine();
+
+        System.out.print("Is this a new Menu Item? (Enter true or false):");
+        isNewItem = Boolean.parseBoolean(input.nextLine());
+
+        MenuItem anotherDinnerMenuItem = new MenuItem(price, description, category, name, isNewItem);
+        dinnerMenu.addMenuItem(anotherDinnerMenuItem);
+
+        System.out.println(dinnerMenu);
 
     }
 

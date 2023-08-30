@@ -1,5 +1,6 @@
 package org.launchcode;
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class MenuItem {
     private double price;
@@ -76,11 +77,13 @@ public class MenuItem {
         String menuItemToString = "";
 
         if (this.isNew) {
+
             menuItemToString += "\nNew!";
 
-        menuItemToString += "\n" + "Name: " + this.name + "\n" + "Description:" + "\n"
+            menuItemToString += "\n" + "Name: " + this.name + "\n" + "Description: "
                 + this.description + "\n"
                 + "Category: " + this.category + "\n" + "Price: $" + df.format(this.price) + "\n";
+
         } else {
 
             menuItemToString += "\n" + "Name: " + this.name + "\n" + "Description:" + "\n"
@@ -88,6 +91,7 @@ public class MenuItem {
                     + "Category: " + this.category + "\n" + "Price: $" + df.format(this.price) + "\n";
 
         }
+
         return menuItemToString;
 
     }
@@ -107,7 +111,7 @@ public class MenuItem {
         }
 
         MenuItem theMenuItem = (MenuItem) menuItemToCheck;
-        return theMenuItem.getName() == getName();
+        return Objects.equals(theMenuItem.getName(), getName());
 
     }
 }
