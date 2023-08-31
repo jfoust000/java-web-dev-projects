@@ -1,6 +1,6 @@
 package org.launchcode;
 
-public class  MenuItem {
+public class MenuItem {
     private double price;
     private String description;
     private String category;
