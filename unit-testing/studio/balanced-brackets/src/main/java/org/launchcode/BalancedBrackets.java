@@ -22,71 +22,39 @@ public class BalancedBrackets {
      */
     public static boolean hasBalancedBrackets(String str) {
 
-      final char leftBracket = '[';
-      final char rightBracket = ']';
+        int brackets = 0;
+        int leftBracket = 0;
+        int rightBracket = 0;
 
-      int bracketCounter = 0;
-      boolean isBalanced = false;
+        for (char ch : str.toCharArray()) {
 
-      String brackets = "";
+            if (ch == '[') {
 
-      if (str.isEmpty()) {
+                leftBracket++;
+                brackets++;
 
-          isBalanced = true;
-          return isBalanced;
+            } else if (ch == ']') {
 
-      } else {
+                rightBracket++;
 
-          // Count any brackets present
-          for (int i = 0; i < str.length(); i++) {
+                if (brackets > 0) {
 
-              if (str.charAt(i) == leftBracket || str.charAt(i) == rightBracket) {
+                    brackets--;
 
-                  bracketCounter++;
-                  brackets += str.charAt(i);
+                }
+            }
+        }
 
-              }
+        if (leftBracket != rightBracket) {
 
-          }
+            return false;
 
-          // Return false if odd brackets, and true if no brackets or empty string
+        }
 
-          // Odd number of brackets
-          if (!(bracketCounter % 2 == 0)) {
-
-              // isBalanced is false here
-              return isBalanced;
-
-              // String without brackets should pass
-          } else if (bracketCounter == 0) {
-
-              isBalanced = true;
-              return isBalanced;
-
-          } else {
-
-              // Loop through brackets string and check order of brackets
-              for (int i = 0; i < brackets.length(); i = i + 2) {
-
-                  if (brackets.charAt(i) == leftBracket && brackets.charAt(i + 1) == rightBracket) {
-
-                      isBalanced = true;
-
-                  } else {
-
-                      isBalanced = false;
-                      break;
-
-                  }
-
-              }
-
-          }
-
-      }
-
-    return isBalanced;
+        return brackets == 0;
 
     }
 
 }
+
+

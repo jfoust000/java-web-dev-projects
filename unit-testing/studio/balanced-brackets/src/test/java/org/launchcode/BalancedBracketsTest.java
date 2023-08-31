@@ -90,7 +90,14 @@ class BalancedBracketsTest {
     @Test
     public void testStringWithNestedBrackets() {
 
-        assertFalse(BalancedBrackets.hasBalancedBrackets("[[]][[]][[][]]"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[[]][[]][[][]]"));
+
+    }
+
+    @Test
+    public void testOnlyClosingBracket() {
+
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
 
     }
 
