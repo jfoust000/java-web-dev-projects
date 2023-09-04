@@ -25,44 +25,32 @@ public class BalancedBrackets {
         // If a complete set of open and closing square brackets, brackets should be 0 (true)
         int brackets = 0;
 
-        // Counter for left bracket
-        int leftBracket = 0;
-
-        // Counter for right bracket
-        int rightBracket = 0;
-
         // Loop through each character in the provided string
         for (char ch : str.toCharArray()) {
 
-            // If char is leftBracket, increment leftBracket and brackets
+            // If char is leftBracket, increment brackets by 1
             if (ch == '[') {
 
-                leftBracket++;
                 brackets++;
 
-              // If char is rightBracket, increment rightBracket
+              // If char is rightBracket, decrement brackets only if we had a left bracket previously.
+                // If not, return false
             } else if (ch == ']') {
 
-                rightBracket++;
-
-                // For every rightBracket found we decrease leftBracket to indicate a set has been found
-                // if there are equal square brackets to leftBrackets, brackets will end up being 0 or true
                 if (brackets > 0) {
 
                     brackets--;
+
+                } else {
+
+                    return false;
 
                 }
             }
         }
 
-        // if leftBracket is not equal to rightBracket, return false because we have incomplete sets of open and closing
-        // brackets
-        if (leftBracket != rightBracket) {
-
-            return false;
-
-        }
-        // Else, return true
+        // return whether brackets is equal to 0 or not (true or false) If 0, we have balanced brackets.
+        // if not, we do not have balanced brackets
         return brackets == 0;
 
     }
