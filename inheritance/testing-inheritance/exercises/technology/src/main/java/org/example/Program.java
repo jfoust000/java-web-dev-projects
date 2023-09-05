@@ -15,6 +15,8 @@ public class Program {
 
         iphone15.powerOn();
 
+        System.out.println(iphone15.getId());
+
     }
 
 }
