@@ -1,6 +1,6 @@
 package org.example;
 
-public class Computer {
+public class Computer extends AbstractEntity {
 
     private String keyboardType;
     private String mouseType;
@@ -18,15 +18,15 @@ public class Computer {
     }
 
 
-    public void powerOn() {
+    public String powerOn() {
 
-        System.out.println("Powered On");
+        return "Powered On";
 
     }
 
-    public void powerOff() {
+    public String powerOff() {
 
-        System.out.println("Powered Off");
+        return "Powered Off";
 
     }
 
@@ -68,4 +68,7 @@ public class Computer {
         this.monitorType = monitorType;
     }
 
+    public String getWifi() {
+        return wifi;
+    }
 }

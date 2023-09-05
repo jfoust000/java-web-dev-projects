@@ -26,4 +26,11 @@ public class Laptop extends Computer {
 
     }
 
+    public String getTopPanel() {
+        return topPanel;
+    }
+
+    public void setTopPanel(String topPanel) {
+        this.topPanel = topPanel;
+    }
 }
