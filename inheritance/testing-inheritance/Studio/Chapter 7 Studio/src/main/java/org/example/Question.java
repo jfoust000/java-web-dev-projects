@@ -1,18 +1,22 @@
 package org.example;
 
 import java.util.Objects;
+import java.util.ArrayList;
 
 public class Question {
 
     private int number;
     private String text;
-    private String answer;
+    private ArrayList<String> answer;
 
-    public Question(int num, String text, String answer) {
+    private boolean multipleAnswers;
+
+    public Question(int num, String text, ArrayList<String> answer, boolean multipleAnswers) {
 
         this.number = num;
         this.text = text;
         this.answer = answer;
+        this.multipleAnswers = multipleAnswers;
 
     }
 
@@ -32,12 +36,21 @@ public class Question {
         this.text = questionText;
     }
 
-    public String getAnswer() {
+    public ArrayList<String> getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String questionAnswer) {
+    public void setAnswer(ArrayList<String> questionAnswer) {
         this.answer = questionAnswer;
+    }
+
+
+    public boolean isMultipleAnswers() {
+        return multipleAnswers;
+    }
+
+    public void setMultipleAnswers(boolean multipleAnswers) {
+        this.multipleAnswers = multipleAnswers;
     }
 
     @Override
