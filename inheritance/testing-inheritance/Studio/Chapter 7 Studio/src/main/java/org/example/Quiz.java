@@ -21,7 +21,7 @@ public class Quiz {
 
     }
 
-    public String gradeQuiz() {
+    private String gradeQuiz() {
 
         DecimalFormat df = new DecimalFormat("#.00");
 
