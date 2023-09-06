@@ -3,20 +3,19 @@ package org.example;
 import java.util.Objects;
 import java.util.ArrayList;
 
-public class Question {
+public abstract class Question {
 
     private int number;
     private String text;
-    private ArrayList<String> answer;
+    private ArrayList<String> possibleAnswers;
+    private String correctAnswer;
 
-    private boolean multipleAnswers;
-
-    public Question(int num, String text, ArrayList<String> answer, boolean multipleAnswers) {
+    public Question(int num, String text, ArrayList<String> possibleAnswers, String correctAnswer) {
 
         this.number = num;
         this.text = text;
-        this.answer = answer;
-        this.multipleAnswers = multipleAnswers;
+        this.possibleAnswers = possibleAnswers;
+        this.correctAnswer = correctAnswer;
 
     }
 
@@ -36,39 +35,42 @@ public class Question {
         this.text = questionText;
     }
 
-    public ArrayList<String> getAnswer() {
-        return answer;
+    public ArrayList<String> getPossibleAnswers() {
+        return possibleAnswers;
     }
 
-    public void setAnswer(ArrayList<String> questionAnswer) {
-        this.answer = questionAnswer;
+    public void setPossibleAnswers(ArrayList<String> questionAnswers) {
+        this.possibleAnswers = questionAnswers;
     }
 
-
-    public boolean isMultipleAnswers() {
-        return multipleAnswers;
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public void setMultipleAnswers(boolean multipleAnswers) {
-        this.multipleAnswers = multipleAnswers;
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
+
+    public abstract void printPossibleAnswers();
+
+    public abstract boolean isCorrectAnswer();
 
     @Override
     public String toString() {
-        return "\nQuestion " + this.number + ":\n\n"
-                + text;
+        return "\nQuestion " + this.number + ".)\n\n"
+                + text + "\n\n";
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Question question)) return false;
-        return Objects.equals(getText(), question.getText()) && Objects.equals(getAnswer(), question.getAnswer());
+        return Objects.equals(getText(), question.getText()) && Objects.equals(getCorrectAnswer(), question.getCorrectAnswer());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getText(), getAnswer());
+        return Objects.hash(getText(), getCorrectAnswer());
     }
 
 }
