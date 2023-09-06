@@ -55,13 +55,13 @@ public abstract class Question {
 
     public boolean isCorrectAnswer(String userAnswer) {
 
-        return getCorrectAnswer().equals(userAnswer);
+        return getCorrectAnswer().equalsIgnoreCase(userAnswer);
 
     }
 
     @Override
     public String toString() {
-        return "\nQuestion " + this.number + ".)\n\n"
+        return "\nQuestion " + number + ".)\n\n"
                 + text + "\n\n";
     }
 

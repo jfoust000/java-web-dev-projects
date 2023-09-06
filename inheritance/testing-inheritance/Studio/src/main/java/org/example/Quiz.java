@@ -6,9 +6,9 @@ import java.text.DecimalFormat;
 public class Quiz {
 
     private ArrayList<Question> questions;
-    private ArrayList<String> userAnswers;
-    private double totalCorrectAnswers = 0;
-    private double grade = 0;
+    private ArrayList<String> userAnswers = new ArrayList<>();
+    private int totalCorrectAnswers = 0;
+    private int grade = 0;
     public Quiz(ArrayList<Question> questions) {
 
         this.questions = questions;
@@ -21,20 +21,18 @@ public class Quiz {
 
     }
 
-    private String gradeQuiz() {
-
-        DecimalFormat df = new DecimalFormat("#.00");
+    private int gradeQuiz() {
 
         this.grade = this.totalCorrectAnswers / questions.size() * 100;
 
-        return df.format(grade);
+        return grade;
     }
 
     public void runQuiz() {
 
         System.out.println("The quiz has started\n");
         Scanner input = new Scanner(System.in);
-        String userAnswer = "";
+        String userAnswer;
 
         for (Question question : questions) {
 
@@ -63,21 +61,18 @@ public class Quiz {
 
         }
 
-        System.out.println("Results:\n");
+        System.out.println("\n\nResults:\n");
 
-        for (Question question : questions) {
+        for (int i = 0; i < questions.size(); i++) {
 
-            for (String answer : userAnswers) {
-
-                System.out.println(question.toString());
-                System.out.println("Your Answer: " + answer + "\n");
-                System.out.println("Correct Answer: " + question.getCorrectAnswer() + "\n");
-
-            }
+                System.out.println(questions.get(i).toString());
+                System.out.println("Your Answer: " + userAnswers.get(i) + "\n");
+                System.out.println("Correct Answer: " + questions.get(i).getCorrectAnswer() + "\n");
 
         }
+
         System.out.println("Overall grade: " + gradeQuiz()
-                + totalCorrectAnswers + " out of "
+                + "% " + totalCorrectAnswers + " out of "
                 + questions.size() + " responses correct");
 
     }
