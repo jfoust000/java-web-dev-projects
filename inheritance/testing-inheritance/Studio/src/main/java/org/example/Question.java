@@ -62,7 +62,7 @@ public abstract class Question {
     @Override
     public String toString() {
         return "\nQuestion " + number + ".)\n\n"
-                + text + "\n\n";
+                + text + "\n";
     }
 
     @Override

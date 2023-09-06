@@ -30,7 +30,7 @@ public class Quiz {
 
     public void runQuiz() {
 
-        System.out.println("The quiz has started\n");
+        System.out.println("\nThe quiz has started");
         Scanner input = new Scanner(System.in);
         String userAnswer;
 
