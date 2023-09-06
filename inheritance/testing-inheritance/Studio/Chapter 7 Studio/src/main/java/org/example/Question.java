@@ -53,7 +53,11 @@ public abstract class Question {
 
     public abstract void printPossibleAnswers();
 
-    public abstract boolean isCorrectAnswer();
+    public boolean isCorrectAnswer(String userAnswer) {
+
+        return getCorrectAnswer().equals(userAnswer);
+
+    }
 
     @Override
     public String toString() {

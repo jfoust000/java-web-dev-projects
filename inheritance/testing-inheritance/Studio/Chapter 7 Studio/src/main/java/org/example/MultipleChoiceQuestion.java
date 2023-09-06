@@ -20,18 +20,5 @@ public class MultipleChoiceQuestion extends Question {
 
     }
 
-    public boolean isCorrectAnswer() {
-
-        boolean isCorrect = false;
-
-        for (String possibleAnswer : getPossibleAnswers()) {
-
-            isCorrect = getCorrectAnswer().equals(possibleAnswer);
-
-        }
-
-        return isCorrect;
-
-    }
 
 }
