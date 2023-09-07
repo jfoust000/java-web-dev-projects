@@ -7,8 +7,7 @@ public class Quiz {
 
     private ArrayList<Question> questions;
     private ArrayList<String> userAnswers = new ArrayList<>();
-    private int totalCorrectAnswers = 0;
-    private int grade = 0;
+    private double totalCorrectAnswers = 0;
     public Quiz(ArrayList<Question> questions) {
 
         this.questions = questions;
@@ -17,15 +16,29 @@ public class Quiz {
 
     public void addQuestion(Question question) {
 
-        this.questions.add(question);
+        for (Question q : questions) {
+
+            if (q.equals(question)) {
+
+                System.out.println("This question already exists.");
+
+            } else {
+
+                this.questions.add(question);
+
+            }
+
+        }
+
 
     }
 
-    private int gradeQuiz() {
+    private String gradeQuiz() {
 
-        this.grade = this.totalCorrectAnswers / questions.size() * 100;
+        DecimalFormat df = new DecimalFormat("#.00");
 
-        return grade;
+        return df.format(totalCorrectAnswers / questions.size() * 100);
+
     }
 
     public void runQuiz() {
@@ -72,7 +85,7 @@ public class Quiz {
         }
 
         System.out.println("Overall grade: " + gradeQuiz()
-                + "% " + totalCorrectAnswers + " out of "
+                + "% " + (int) totalCorrectAnswers + " out of "
                 + questions.size() + " responses correct");
 
     }
