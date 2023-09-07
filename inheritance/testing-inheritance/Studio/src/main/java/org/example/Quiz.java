@@ -84,7 +84,9 @@ public class Quiz {
 
         }
 
-        System.out.println("Overall grade: " + gradeQuiz()
+        double newGrade = Double.parseDouble(gradeQuiz());
+
+        System.out.println("Overall grade: " + (int)newGrade
                 + "% " + (int) totalCorrectAnswers + " out of "
                 + questions.size() + " responses correct");
 
